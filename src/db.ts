@@ -11,6 +11,7 @@
 import { DatabaseSync } from "node:sqlite";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import fs from "node:fs";
 import { SCHEMA_SQL } from "./data/schema.js";
 
 const PROJECT_ROOT = fileURLToPath(new URL("..", import.meta.url));
@@ -31,6 +32,14 @@ export interface OpenDbOptions {
  */
 export function openDb(options: OpenDbOptions = {}): DatabaseSync {
   const dbPath = options.path ?? DEFAULT_DB_PATH;
+
+  // The data/ directory isn't guaranteed to exist yet — it holds only the
+  // generated database file (gitignored), so a fresh clone or CI checkout
+  // won't have it. node:sqlite doesn't create parent directories for you.
+  if (dbPath !== ":memory:") {
+    fs.mkdirSync(path.dirname(dbPath), { recursive: true });
+  }
+
   const db = new DatabaseSync(dbPath);
 
   // Reasonable defaults for a small local tool: enforce FKs (the schema
