@@ -1,0 +1,35 @@
+{
+  "name": "inventory-mcp-toolkit",
+  "version": "1.0.0",
+  "description": "An educational, production-credible Model Context Protocol (MCP) server + client for a warehouse/inventory management system.",
+  "type": "module",
+  "author": "Emmanuel Oyekanlu",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "seed": "tsx src/data/seed.ts",
+    "dev:server": "tsx src/server.ts",
+    "dev:client": "tsx src/client.ts",
+    "build": "tsc -p tsconfig.json",
+    "start:server": "node dist/server.js",
+    "start:client": "node dist/client.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint src tests"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.31.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.3",
+    "eslint": "^10.11.0",
+    "tsx": "^4.23.15",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.71.0",
+    "vitest": "^5.0.3"
+  }
+}
