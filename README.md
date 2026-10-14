@@ -1,4 +1,4 @@
-# inventory-mcp-toolkit
+# Inventory MCP Toolkit
 
 A small, realistic warehouse/inventory system exposed through the **Model
 Context Protocol (MCP)** — a server, a standalone client, and a test suite,
