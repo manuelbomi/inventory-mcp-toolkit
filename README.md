@@ -2,9 +2,7 @@
 
 A small, realistic warehouse/inventory system exposed through the **Model
 Context Protocol (MCP)** — a server, a standalone client, and a test suite,
-all in TypeScript. I built this to actually learn MCP by implementing one
-end to end, rather than just reading the spec. If you're in the same boat,
-this repo is meant to be read top to bottom.
+all in TypeScript. 
 
 ## What is MCP, and why does it matter?
 
